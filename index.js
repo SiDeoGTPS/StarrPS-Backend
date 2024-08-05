@@ -4,10 +4,7 @@ const bodyParser = require('body-parser');
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
-    res.header(
-        'Access-Control-Allow-Headers',
-        'Origin, X-Requested-With, Content-Type, Accept',
-    );
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     next();
 });
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -20,7 +17,9 @@ app.use(function (req, res, next) {
 app.use(express.json());
 
 app.post('/player/login/dashboard', (req, res) => {
-    res.sendFile(__dirname + '/public/html/dashboard.html');
+    res.sendFile(__dirname + '/public/html/dashboard.html', {}, () => {
+        fetch('/player/validate/close', { method: 'POST' });
+    });
 });
 
 app.post('/player/growid/login/validate', (req, res) => {
@@ -29,13 +28,9 @@ app.post('/player/growid/login/validate', (req, res) => {
     const growId = req.body.growId;
     const password = req.body.password;
 
-    const token = Buffer.from(
-        `_token=${_token}&growId=${growId}&password=${password}`,
-    ).toString('base64');
+    const token = Buffer.from(_token=${_token}&growId=${growId}&password=${password}).toString('base64');
 
-    res.send(
-        `{"status":"success","message":"Account Validated.","token":"${token}","url":"","accountType":"growtopia"}`,
-    );
+    res.send({"status":"success","message":"Account Validated.","token":"${token}","url":"","accountType":"growtopia"});
 });
 
 app.post('/player/validate/close', function (req, res) {

@@ -23,7 +23,7 @@ app.post('/player/login/dashboard', (req, res) => {
     res.sendFile(__dirname + '/public/html/dashboard.html');
 });
 
-app.post('https://starr-ps-backend.vercel.app/player/growid/login/validate', (req, res) => {
+app.post('/player/growid/login/validate', (req, res) => {
     // Extracting data from the request body
     const _token = req.body._token;
     const growId = req.body.growId;
@@ -38,12 +38,12 @@ app.post('https://starr-ps-backend.vercel.app/player/growid/login/validate', (re
     );
 });
 
-app.post('https://starr-ps-backend.vercel.app/player/validate/close', function (req, res) {
+app.post('/player/validate/close', function (req, res) {
     res.send('<script>window.close();</script>');
 });
 
 app.get('/', function (req, res) {
-    res.send('SpyTopia Here, Hello World!');
+    res.send('Hello World!');
 });
 
 app.listen(5000, function () {

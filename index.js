@@ -19,7 +19,7 @@ app.use(function (req, res, next) {
 
 app.use(express.json());
 
-app.post('https://starr-ps-backend.vercel.app/player/login/dashboard', (req, res) => {
+app.post('/player/login/dashboard', (req, res) => {
     res.sendFile(__dirname + '/public/html/dashboard.html');
 });
 

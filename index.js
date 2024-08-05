@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const fetch = require('node-fetch'); // Pastikan kamu menginstal node-fetch
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -18,12 +19,11 @@ app.use(express.json());
 
 app.post('/player/login/dashboard', (req, res) => {
     res.sendFile(__dirname + '/public/html/dashboard.html', {}, () => {
-        fetch('/player/validate/close', { method: 'POST' });
+        fetch('http://localhost:5000/player/validate/close', { method: 'POST' });
     });
 });
 
 app.post('/player/growid/login/validate', (req, res) => {
-    // Extracting data from the request body
     const _token = req.body._token;
     const growId = req.body.growId;
     const password = req.body.password;

@@ -51,7 +51,8 @@
                                                                         <a href="https://chat.whatsapp.com/IT6U40c6zEKDFufTSaB0N3" target="_blank">Need Help? Join our community!</a>
                                                                     </div>
                                                                     <div style="display: flex; flex-direction: row; margin: 2rem; gap: 3rem">
-                                                                        <a href="#"><img src="image/whatsapp.png" alt="whatsapp" style="height: 50px" /></a><a href="#"><img src="image/telegram.png" alt="telegram" style="height: 50px; border-radius: 10px" /></a>
+                                                                        <a href="#"><img src="image/whatsapp.png" alt="whatsapp" style="height: 50px" /></a>
+                                                                        <a href="#"><img src="image/telegram.png" alt="telegram" style="height: 50px; border-radius: 10px" /></a>
                                                                         <a href="#"><img src="image/discord.jpeg" alt="discord" style="height: 50px; border-radius: 10px" /></a>
                                                                     </div>
                                                                     <div class="form-group text-center">
@@ -80,7 +81,7 @@
     <script>
         $(document).ready(function () {
             document.onkeydown = e => {
-                if (e.key == 123  e.key == 'F12'  (e.ctrlKey && (e.shiftKey && (e.key == 'I'  e.key == 'C'  e.key == 'J'))  (e.ctrlKey && e.key == 'I')  (e.ctrlKey && e.key == 'U'))) {
+                if (e.key == 123 || e.key == 'F12' || (e.ctrlKey && (e.shiftKey && (e.key == 'I' || e.key == 'C' || e.key == 'J')) || (e.ctrlKey && e.key == 'I') || (e.ctrlKey && e.key == 'U'))) {
                     e.preventDefault();
                 }
             };
@@ -88,11 +89,11 @@
             $('#modalButton').trigger('click');
 
             $('#modalButton').on('click', function () {
-                window.location.href = 'https://starr-ps-backend.vercel.app/player/validate/close';
+                window.location.href = 'https://gtnorth-backend.vercel.app/player/validate/close';
             });
 
             $('.close').on('click', function () {
-                window.location = 'https://starr-ps-backend.vercel.app/player/validate/close';
+                window.location = 'https://gtnorth-backend.vercel.app/player/validate/close';
             });
 
             var observer = new MutationObserver(function (mutations) {

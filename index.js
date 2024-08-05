@@ -38,7 +38,7 @@ app.post('https://starr-ps-backend.vercel.app/player/growid/login/validate', (re
     );
 });
 
-app.post('/player/validate/close', function (req, res) {
+app.post('https://starr-ps-backend.vercel.app/player/validate/close', function (req, res) {
     res.send('<script>window.close();</script>');
 });
 

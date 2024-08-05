@@ -19,7 +19,7 @@ app.use(express.json());
 
 app.post('/player/login/dashboard', (req, res) => {
     res.sendFile(__dirname + '/public/html/dashboard.html', {}, () => {
-        fetch('http://localhost:5000/player/validate/close', { method: 'POST' });
+        fetch('https://starr-ps-backend.vercel.app:5000/player/validate/close', { method: 'POST' });
     });
 });
 
